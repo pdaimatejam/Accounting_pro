@@ -1,0 +1,171 @@
+HESAPPRO PRIVACY POLICY
+
+Effective Date: June 5, 2026
+Version: 1.0
+
+---
+
+INTRODUCTION
+
+Welcome to HesapPro, a small business accounting and management application for Android. HesapPro helps you track sales, purchases, cash registers, current accounts (cari), and inventory.
+
+This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data. By installing or using HesapPro, you agree to the practices described in this policy.
+
+Core Principle: All your business data is stored locally on your device. We do not collect, sell, or share your business data with any third party. Cloud backup is entirely optional and controlled by you.
+
+---
+
+INFORMATION WE COLLECT
+
+HesapPro collects and processes only the data you actively enter into the application. We do not automatically collect analytics, telemetry, or usage data.
+
+Data Categories:
+
+• Business Contacts (Cari): Name, phone, email, address, tax office, tax number, account balance - stored locally on your device (Room DB)
+
+• Transactions (İşlem): Sales, purchases, collections, payments — dates, amounts, document numbers, notes - stored locally on your device (Room DB)
+
+• Inventory (Stok): Product code, name, category, unit, purchase/sale price, VAT rate, stock quantity - stored locally on your device (Room DB)
+
+• Cheque Records (Çek): Cheque serial number, bank name, due date, tax number, amount - stored locally on your device (Room DB)
+
+• Company Profile: Business name, phone, email, address, tax details (used as PDF report header) - stored on your device (SharedPreferences)
+
+• Trial/Subscription Status: Trial start timestamp, subscription status flag - stored on your device (SharedPreferences)
+
+• Cloud Backup (Optional): All of the above, uploaded to Firebase Realtime Database when you log in with your email/password
+
+We do NOT collect: Device identifiers (IMEI, advertising ID), location data, browsing history, contacts from your phone's address book (contact reading permission is requested solely to auto-fill business contact fields at your direction), or any biometric data.
+
+---
+
+HOW WE USE YOUR INFORMATION
+
+All data processing occurs on your device. We use the data you enter solely for the following purposes:
+
+• Displaying your business dashboard (net equity, cash totals, receivables/payables)
+• Generating PDF reports, receipts, and current account statements
+• Managing inventory levels and stock alerts
+• Barcode scanning (camera) to look up or add products
+• Synchronising your data across multiple devices via Firebase (only if you choose to enable cloud backup)
+• Managing your trial period and subscription status via Google Play Billing
+
+We do not use your data for advertising, profiling, or any purpose other than operating the application features you actively use.
+
+---
+
+APP PERMISSIONS
+
+HesapPro requests the following Android permissions:
+
+CAMERA: Used exclusively to scan product barcodes. No photos are taken or stored by the app.
+
+READ_CONTACTS: Used only when you tap "Import from Contacts" to auto-fill a new business contact's name and phone number. The app never reads your contacts in the background.
+
+INTERNET: Required for optional Firebase cloud backup and Google Play Billing (subscription management).
+
+READ_MEDIA_IMAGES / READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE: Used to save PDF reports to your device's storage so you can share or archive them. No personal photos are accessed.
+
+Note: All permissions are opt-in at runtime. Denying a permission simply disables the corresponding feature; it does not affect core accounting functionality.
+
+---
+
+CLOUD BACKUP & FIREBASE
+
+HesapPro includes an optional cloud backup feature powered by Google Firebase Realtime Database. This feature is disabled by default.
+
+If you choose to enable cloud backup:
+
+• You create an account with your email address and a password of your choice
+• Your business data (contacts, transactions, inventory) is encrypted in transit (HTTPS/TLS) and stored in Firebase under your unique user ID
+• Data is bidirectionally synchronised across your devices to the same Firebase project
+• You can delete your cloud data at any time by signing out and using the "Reset & Delete Configuration" option
+
+Firebase is a Google service. Their privacy practices are governed by Google's Privacy Policy at https://policies.google.com/privacy
+
+Important: If you never enable cloud backup, no data ever leaves your device. The app is fully functional offline.
+
+---
+
+SUBSCRIPTIONS & BILLING
+
+HesapPro offers a 7-day free trial followed by optional paid subscription plans (monthly/yearly). Payments are processed entirely through Google Play Billing. We do not collect, store, or have access to your payment card details.
+
+Subscription status (active/inactive) is stored locally on your device. Google Play provides us with anonymised confirmation of whether a valid subscription exists; it does not share your personal payment information with us.
+
+To cancel a subscription, visit Google Play Store → Subscriptions.
+
+---
+
+DATA SHARING & DISCLOSURE
+
+We do not sell, rent, or trade your personal or business data to third parties. The only situations in which data may leave your device are:
+
+• Google Firebase: Business data you entered (contacts, transactions, inventory) - only if you enable cloud backup
+
+• Google Play Billing: Subscription purchase confirmation (anonymised) - required for in-app subscriptions
+
+• Legal/Regulatory: Any data required by applicable law - legal obligation only
+
+---
+
+DATA RETENTION & DELETION
+
+Your data remains on your device until you uninstall the app or manually delete records. Uninstalling HesapPro removes the local database and all SharedPreferences.
+
+If you used cloud backup, your data in Firebase is associated with your account UID. To delete it, sign in to the cloud section within the app and use "Reset & Delete Configuration", or contact us to request complete deletion.
+
+---
+
+CHILDREN'S PRIVACY
+
+HesapPro is designed for business use and is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.
+
+---
+
+SECURITY
+
+We take reasonable technical measures to protect your information:
+
+• Local database uses Android's built-in app sandbox (data is not accessible to other apps)
+• Cloud data is transmitted over HTTPS/TLS
+• Firebase security rules restrict access to your data by your unique user ID only
+
+No method of transmission over the internet or electronic storage is 100% secure. We encourage you to use a strong, unique password for your cloud backup account.
+
+---
+
+YOUR RIGHTS
+
+Depending on your jurisdiction, you may have the following rights regarding your personal data:
+
+• Access: Request a copy of data we hold about you
+• Correction: Update inaccurate personal data
+• Deletion: Request deletion of your data ("right to be forgotten")
+• Portability: Export your data in a machine-readable format
+• Objection: Object to certain processing activities
+• Restriction: Ask us to limit how we process your data
+
+Since most data is stored locally on your device, you exercise these rights directly within the app. For cloud data, contact us.
+
+---
+
+CHANGES TO THIS POLICY
+
+We may update this Privacy Policy from time to time. When we make material changes, we will update the "Effective Date" above and, where appropriate, notify you through the app or via a Play Store update note.
+
+Continued use of HesapPro after any changes constitutes your acceptance of the updated policy.
+
+---
+
+CONTACT US
+
+If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please reach out:
+
+Email: hesappro.app@gmail.com
+
+We aim to respond within 5 business days.
+
+---
+
+© 2026 HesapPro · Privacy Policy v1.0
