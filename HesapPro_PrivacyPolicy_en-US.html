@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HesapPro – Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink:       #1a1f2e;
+    --muted:     #556070;
+    --accent:    #2d5be3;
+    --accent2:   #1e3fa8;
+    --surface:   #f4f6fc;
+    --card:      #ffffff;
+    --border:    #dde3f0;
+    --warn:      #e85d2f;
+    --warn-bg:   #fff4f0;
+    --green:     #1a9e6a;
+    --green-bg:  #edf9f4;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1a2744 0%, #2d5be3 100%);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(255,255,255,.08) 0%, transparent 70%);
+  }
+  .app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 40px;
+    padding: 8px 20px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .app-badge svg { width: 22px; height: 22px; opacity: .9; }
+  .app-badge span { font-size: 13px; font-weight: 600; letter-spacing: .04em; opacity: .9; }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 400;
+    letter-spacing: -.01em;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 14px;
+    opacity: .72;
+    letter-spacing: .03em;
+  }
+  .effective-chip {
+    display: inline-block;
+    margin-top: 18px;
+    background: rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    opacity: .88;
+  }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── SUMMARY CARDS ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: box-shadow .2s;
+  }
+  .summary-card:hover { box-shadow: 0 4px 20px rgba(45,91,227,.08); }
+  .card-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 18px;
+  }
+  .icon-green  { background: var(--green-bg);  color: var(--green); }
+  .icon-blue   { background: #eef2ff;           color: var(--accent); }
+  .icon-warn   { background: var(--warn-bg);    color: var(--warn); }
+  .icon-purple { background: #f3eeff;           color: #7c3aed; }
+  .card-text p:first-child { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+  .card-text p:last-child  { font-size: 13.5px; font-weight: 500; color: var(--ink); }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 40px; }
+  .section-number {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  p { margin-bottom: 12px; color: var(--ink); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── TABLES ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+  .data-table thead tr { background: #f0f3fa; }
+  .data-table th {
+    text-align: left;
+    padding: 11px 16px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .data-table td { padding: 11px 16px; border-top: 1px solid var(--border); vertical-align: top; }
+  .data-table tr:hover td { background: #f9faff; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .03em;
+  }
+  .badge-local  { background: var(--green-bg);  color: var(--green); }
+  .badge-cloud  { background: #eef2ff;           color: var(--accent); }
+  .badge-device { background: #f3eeff;           color: #7c3aed; }
+  .badge-ext    { background: #fff3cd;           color: #92600a; }
+
+  /* ── HIGHLIGHT BOXES ── */
+  .highlight {
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .highlight-green { background: var(--green-bg);  border-left: 3px solid var(--green); }
+  .highlight-blue  { background: #eef2ff;           border-left: 3px solid var(--accent); }
+  .highlight-warn  { background: var(--warn-bg);    border-left: 3px solid var(--warn); }
+  .highlight em { font-style: normal; font-weight: 700; }
+  .hl-icon { font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+
+  /* ── PERMISSION LIST ── */
+  .permission-list { list-style: none; margin: 14px 0; }
+  .permission-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 13px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+  }
+  .perm-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .perm-name { font-weight: 700; display: block; margin-bottom: 2px; color: var(--ink); }
+  .perm-why  { color: var(--muted); font-size: 12.5px; }
+
+  /* ── RIGHTS GRID ── */
+  .rights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 14px 0; }
+  .right-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+  .right-item .r-title { font-weight: 700; margin-bottom: 3px; color: var(--accent); }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: linear-gradient(135deg, #1a2744 0%, #2d5be3 100%);
+    border-radius: 16px;
+    padding: 28px 28px;
+    color: #fff;
+    margin-top: 40px;
+  }
+  .contact-box h3 { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; }
+  .contact-box p  { opacity: .82; font-size: 14px; margin-bottom: 6px; }
+  .contact-box a  { color: #90b4ff; text-decoration: none; font-weight: 600; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 36px 16px 32px; }
+    main { padding: 28px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="app-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="7" height="18" rx="1"/><rect x="15" y="3" width="7" height="18" rx="1"/>
+      <circle cx="12" cy="12" r="4"/><path d="M12 9v6M10 12h4"/>
+    </svg>
+    <span>HesapPro</span>
+  </div>
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Small Business Accounting &amp; Management App</p>
+  <div class="effective-chip">Effective Date: June 5, 2026 &nbsp;·&nbsp; Version 1.0</div>
+</header>
+
+<main>
+
+  <!-- Summary Cards -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="card-icon icon-green">🔒</div>
+      <div class="card-text">
+        <p>Data Storage</p>
+        <p>Stored locally on your device by default</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon icon-blue">☁️</div>
+      <div class="card-text">
+        <p>Cloud Sync</p>
+        <p>Optional — requires your own Firebase account</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon icon-warn">🚫</div>
+      <div class="card-text">
+        <p>Third-party Ads</p>
+        <p>No ads. Your data is never sold.</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon icon-purple">📋</div>
+      <div class="card-text">
+        <p>Data Categories</p>
+        <p>Business contacts, transactions, inventory</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Introduction -->
+  <section>
+    <span class="section-number">01</span>
+    <h2>Introduction</h2>
+    <p>Welcome to <strong>HesapPro</strong> ("Application", "App", "we", "us", or "our"). HesapPro is a small business accounting and management application for Android that helps you track sales, purchases, cash registers, current accounts (cari), and inventory.</p>
+    <p>This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data. By installing or using HesapPro, you agree to the practices described in this policy.</p>
+    <div class="highlight highlight-green">
+      <span class="hl-icon">✅</span>
+      <div><em>Core principle:</em> All your business data is stored locally on your device. We do not collect, sell, or share your business data with any third party. Cloud backup is entirely optional and controlled by you.</div>
+    </div>
+  </section>
+
+  <!-- 2. Information We Collect -->
+  <section>
+    <span class="section-number">02</span>
+    <h2>Information We Collect</h2>
+    <p>HesapPro collects and processes only the data you actively enter into the application. We do not automatically collect analytics, telemetry, or usage data.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Category</th>
+          <th>What It Includes</th>
+          <th>Where Stored</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Business Contacts (Cari)</strong></td>
+          <td>Name, phone, email, address, tax office, tax number, account balance</td>
+          <td><span class="badge badge-local">Local (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Transactions (İşlem)</strong></td>
+          <td>Sales, purchases, collections, payments — dates, amounts, document numbers, notes</td>
+          <td><span class="badge badge-local">Local (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Inventory (Stok)</strong></td>
+          <td>Product code, name, category, unit, purchase/sale price, VAT rate, stock quantity</td>
+          <td><span class="badge badge-local">Local (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Cheque Records (Çek)</strong></td>
+          <td>Cheque serial number, bank name, due date, tax number, amount</td>
+          <td><span class="badge badge-local">Local (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Company Profile</strong></td>
+          <td>Business name, phone, email, address, tax details (used as PDF report header)</td>
+          <td><span class="badge badge-device">SharedPreferences</span></td>
+        </tr>
+        <tr>
+          <td><strong>Trial / Subscription Status</strong></td>
+          <td>Trial start timestamp, subscription status flag</td>
+          <td><span class="badge badge-device">SharedPreferences</span></td>
+        </tr>
+        <tr>
+          <td><strong>Cloud Backup (Optional)</strong></td>
+          <td>All of the above, uploaded to Firebase Realtime Database when you log in with your email/password</td>
+          <td><span class="badge badge-cloud">Firebase (optional)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight highlight-blue">
+      <span class="hl-icon">ℹ️</span>
+      <div><em>We do not collect:</em> Device identifiers (IMEI, advertising ID), location data, browsing history, contacts from your phone's address book (contact reading permission is requested solely to auto-fill business contact fields at your direction), or any biometric data.</div>
+    </div>
+  </section>
+
+  <!-- 3. How We Use Your Information -->
+  <section>
+    <span class="section-number">03</span>
+    <h2>How We Use Your Information</h2>
+    <p>All data processing occurs on your device. We use the data you enter solely for the following purposes:</p>
+    <ul style="padding-left:20px; margin:10px 0;">
+      <li style="margin-bottom:8px;">Displaying your business dashboard (net equity, cash totals, receivables/payables)</li>
+      <li style="margin-bottom:8px;">Generating PDF reports, receipts, and current account statements</li>
+      <li style="margin-bottom:8px;">Managing inventory levels and stock alerts</li>
+      <li style="margin-bottom:8px;">Barcode scanning (camera) to look up or add products</li>
+      <li style="margin-bottom:8px;">Synchronising your data across multiple devices via Firebase (only if you choose to enable cloud backup)</li>
+      <li style="margin-bottom:8px;">Managing your trial period and subscription status via Google Play Billing</li>
+    </ul>
+    <p>We do not use your data for advertising, profiling, or any purpose other than operating the application features you actively use.</p>
+  </section>
+
+  <!-- 4. Permissions -->
+  <section>
+    <span class="section-number">04</span>
+    <h2>App Permissions</h2>
+    <p>HesapPro requests the following Android permissions:</p>
+    <ul class="permission-list">
+      <li>
+        <span class="perm-icon">📷</span>
+        <div>
+          <span class="perm-name">CAMERA</span>
+          <span class="perm-why">Used exclusively to scan product barcodes. No photos are taken or stored by the app.</span>
+        </div>
+      </li>
+      <li>
+        <span class="perm-icon">👥</span>
+        <div>
+          <span class="perm-name">READ_CONTACTS</span>
+          <span class="perm-why">Used only when you tap "Import from Contacts" to auto-fill a new business contact's name and phone number. The app never reads your contacts in the background.</span>
+        </div>
+      </li>
+      <li>
+        <span class="perm-icon">🌐</span>
+        <div>
+          <span class="perm-name">INTERNET</span>
+          <span class="perm-why">Required for optional Firebase cloud backup and Google Play Billing (subscription management).</span>
+        </div>
+      </li>
+      <li>
+        <span class="perm-icon">🖼️</span>
+        <div>
+          <span class="perm-name">READ_MEDIA_IMAGES / READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE</span>
+          <span class="perm-why">Used to save PDF reports to your device's storage so you can share or archive them. No personal photos are accessed.</span>
+        </div>
+      </li>
+    </ul>
+    <div class="highlight highlight-warn">
+      <span class="hl-icon">⚠️</span>
+      <div>All permissions are <em>opt-in at runtime</em>. Denying a permission simply disables the corresponding feature; it does not affect core accounting functionality.</div>
+    </div>
+  </section>
+
+  <!-- 5. Cloud Backup & Firebase -->
+  <section>
+    <span class="section-number">05</span>
+    <h2>Cloud Backup &amp; Firebase</h2>
+    <p>HesapPro includes an <strong>optional</strong> cloud backup feature powered by Google Firebase Realtime Database. This feature is disabled by default.</p>
+    <p>If you choose to enable cloud backup:</p>
+    <ul style="padding-left:20px; margin:10px 0;">
+      <li style="margin-bottom:8px;">You create an account with your email address and a password of your choice.</li>
+      <li style="margin-bottom:8px;">Your business data (contacts, transactions, inventory) is encrypted in transit (HTTPS/TLS) and stored in Firebase under your unique user ID.</li>
+      <li style="margin-bottom:8px;">Data is bidirectionally synchronised across your devices to the same Firebase project.</li>
+      <li style="margin-bottom:8px;">You can delete your cloud data at any time by signing out and using the "Reset &amp; Delete Configuration" option.</li>
+    </ul>
+    <p>Firebase is a Google service. Their privacy practices are governed by Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--accent)">policies.google.com/privacy</a>.</p>
+    <div class="highlight highlight-green">
+      <span class="hl-icon">✅</span>
+      <div>If you never enable cloud backup, <em>no data ever leaves your device</em>. The app is fully functional offline.</div>
+    </div>
+  </section>
+
+  <!-- 6. Subscriptions & Billing -->
+  <section>
+    <span class="section-number">06</span>
+    <h2>Subscriptions &amp; Billing</h2>
+    <p>HesapPro offers a <strong>7-day free trial</strong> followed by optional paid subscription plans (monthly/yearly). Payments are processed entirely through <strong>Google Play Billing</strong>. We do not collect, store, or have access to your payment card details.</p>
+    <p>Subscription status (active / inactive) is stored locally on your device. Google Play provides us with anonymised confirmation of whether a valid subscription exists; it does not share your personal payment information with us.</p>
+    <p>To cancel a subscription, visit Google Play Store &rarr; Subscriptions.</p>
+  </section>
+
+  <!-- 7. Data Sharing -->
+  <section>
+    <span class="section-number">07</span>
+    <h2>Data Sharing &amp; Disclosure</h2>
+    <p>We do not sell, rent, or trade your personal or business data to third parties. The only situations in which data may leave your device are:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Recipient</th><th>Data Shared</th><th>Basis</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Google Firebase</strong></td>
+          <td>Business data you entered (contacts, transactions, inventory)</td>
+          <td>Only if you enable cloud backup</td>
+        </tr>
+        <tr>
+          <td><strong>Google Play Billing</strong></td>
+          <td>Subscription purchase confirmation (anonymised)</td>
+          <td>Required for in-app subscriptions</td>
+        </tr>
+        <tr>
+          <td><strong>Legal / Regulatory</strong></td>
+          <td>Any data required by applicable law</td>
+          <td>Legal obligation only</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 8. Data Retention & Deletion -->
+  <section>
+    <span class="section-number">08</span>
+    <h2>Data Retention &amp; Deletion</h2>
+    <p>Your data remains on your device until you uninstall the app or manually delete records. Uninstalling HesapPro removes the local database and all SharedPreferences.</p>
+    <p>If you used cloud backup, your data in Firebase is associated with your account UID. To delete it, sign in to the cloud section within the app and use "Reset &amp; Delete Configuration", or contact us at the address below to request complete deletion.</p>
+  </section>
+
+  <!-- 9. Children's Privacy -->
+  <section>
+    <span class="section-number">09</span>
+    <h2>Children's Privacy</h2>
+    <p>HesapPro is designed for business use and is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+  </section>
+
+  <!-- 10. Security -->
+  <section>
+    <span class="section-number">10</span>
+    <h2>Security</h2>
+    <p>We take reasonable technical measures to protect your information:</p>
+    <ul style="padding-left:20px; margin:10px 0;">
+      <li style="margin-bottom:6px;">Local database uses Android's built-in app sandbox (data is not accessible to other apps).</li>
+      <li style="margin-bottom:6px;">Cloud data is transmitted over HTTPS/TLS.</li>
+      <li style="margin-bottom:6px;">Firebase security rules restrict access to your data by your unique user ID only.</li>
+    </ul>
+    <p>No method of transmission over the internet or electronic storage is 100% secure. We encourage you to use a strong, unique password for your cloud backup account.</p>
+  </section>
+
+  <!-- 11. Your Rights -->
+  <section>
+    <span class="section-number">11</span>
+    <h2>Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+    <div class="rights-grid">
+      <div class="right-item"><div class="r-title">Access</div>Request a copy of data we hold about you.</div>
+      <div class="right-item"><div class="r-title">Correction</div>Update inaccurate personal data.</div>
+      <div class="right-item"><div class="r-title">Deletion</div>Request deletion of your data ("right to be forgotten").</div>
+      <div class="right-item"><div class="r-title">Portability</div>Export your data in a machine-readable format.</div>
+      <div class="right-item"><div class="r-title">Objection</div>Object to certain processing activities.</div>
+      <div class="right-item"><div class="r-title">Restriction</div>Ask us to limit how we process your data.</div>
+    </div>
+    <p>Since most data is stored locally on your device, you exercise these rights directly within the app. For cloud data, contact us at the address below.</p>
+  </section>
+
+  <!-- 12. Changes -->
+  <section>
+    <span class="section-number">12</span>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Effective Date" at the top of this page and, where appropriate, notify you through the app or via a Play Store update note.</p>
+    <p>Continued use of HesapPro after any changes constitutes your acceptance of the updated policy.</p>
+  </section>
+
+  <!-- Contact -->
+  <div class="contact-box">
+    <h3>Contact Us</h3>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please reach out:</p>
+    <p>📧 <a href="mailto:hesappro.app@gmail.com">hesappro.app@gmail.com</a></p>
+    <p style="margin-top:10px; font-size:12px; opacity:.6;">We aim to respond within 5 business days.</p>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 HesapPro &nbsp;·&nbsp; Privacy Policy v1.0 &nbsp;·&nbsp; Last updated: June 5, 2026
+</footer>
+
+</body>
+</html>
