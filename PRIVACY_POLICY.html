@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HesapPro Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .meta {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            border-bottom: 1px dotted #667eea;
+        }
+        a:hover {
+            color: #764ba2;
+            border-bottom: 1px solid #764ba2;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 HesapPro Privacy Policy</h1>
+        
+        <div class="meta">
+            <p><strong>Effective Date:</strong> June 5, 2026</p>
+            <p><strong>Version:</strong> 1.0</p>
+        </div>
+
+        <h2>📋 Introduction</h2>
+        <p>Welcome to HesapPro, a small business accounting and management application for Android. HesapPro helps you track sales, purchases, cash registers, current accounts (cari), and inventory.</p>
+        <p>This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data. By installing or using HesapPro, you agree to the practices described in this policy.</p>
+        
+        <div class="highlight">
+            <strong>Core Principle:</strong> All your business data is stored locally on your device. We do not collect, sell, or share your business data with any third party. Cloud backup is entirely optional and controlled by you.
+        </div>
+
+        <h2>📊 Information We Collect</h2>
+        <p>HesapPro collects and processes only the data you actively enter into the application. We do not automatically collect analytics, telemetry, or usage data.</p>
+        
+        <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Data Categories:</h3>
+        <ul>
+            <li><strong>Business Contacts (Cari):</strong> Name, phone, email, address, tax office, tax number, account balance - stored locally on your device (Room DB)</li>
+            <li><strong>Transactions (İşlem):</strong> Sales, purchases, collections, payments — dates, amounts, document numbers, notes - stored locally on your device (Room DB)</li>
+            <li><strong>Inventory (Stok):</strong> Product code, name, category, unit, purchase/sale price, VAT rate, stock quantity - stored locally on your device (Room DB)</li>
+            <li><strong>Cheque Records (Çek):</strong> Cheque serial number, bank name, due date, tax number, amount - stored locally on your device (Room DB)</li>
+            <li><strong>Company Profile:</strong> Business name, phone, email, address, tax details (used as PDF report header) - stored on your device (SharedPreferences)</li>
+            <li><strong>Trial/Subscription Status:</strong> Trial start timestamp, subscription status flag - stored on your device (SharedPreferences)</li>
+            <li><strong>Cloud Backup (Optional):</strong> All of the above, uploaded to Firebase Realtime Database when you log in with your email/password</li>
+        </ul>
+
+        <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">We do NOT collect:</h3>
+        <ul>
+            <li>Device identifiers (IMEI, advertising ID)</li>
+            <li>Location data</li>
+            <li>Browsing history</li>
+            <li>Contacts from your phone's address book (contact reading permission is requested solely to auto-fill business contacts)</li>
+        </ul>
+
+        <h2>🎯 How We Use Your Information</h2>
+        <p>All data processing occurs on your device. We use the data you enter solely for the following purposes:</p>
+        <ul>
+            <li>Displaying your business dashboard (net equity, cash totals, receivables/payables)</li>
+            <li>Generating PDF reports, receipts, and current account statements</li>
+            <li>Managing inventory levels and stock alerts</li>
+            <li>Barcode scanning (camera) to look up or add products</li>
+            <li>Synchronising your data across multiple devices via Firebase (only if you choose to enable cloud backup)</li>
+            <li>Managing your trial period and subscription status via Google Play Billing</li>
+        </ul>
+        <p>We do not use your data for advertising, profiling, or any purpose other than operating the application features you actively use.</p>
+
+        <h2>🔐 App Permissions</h2>
+        <p>HesapPro requests the following Android permissions:</p>
+        <ul>
+            <li><strong>CAMERA:</strong> Used exclusively to scan product barcodes. No photos are taken or stored by the app.</li>
+            <li><strong>READ_CONTACTS:</strong> Used only when you tap "Import from Contacts" to auto-fill a new business contact's name and phone number. The app never reads your contacts in the background.</li>
+            <li><strong>INTERNET:</strong> Required for optional Firebase cloud backup and Google Play Billing (subscription management).</li>
+            <li><strong>READ_MEDIA_IMAGES / READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE:</strong> Used to save PDF reports to your device's storage so you can share or archive them. No personal photos are accessed.</li>
+        </ul>
+        <p><strong>Note:</strong> All permissions are opt-in at runtime. Denying a permission simply disables the corresponding feature; it does not affect core accounting functionality.</p>
+
+        <h2>☁️ Cloud Backup & Firebase</h2>
+        <p>HesapPro includes an optional cloud backup feature powered by Google Firebase Realtime Database. This feature is disabled by default.</p>
+        <p><strong>If you choose to enable cloud backup:</strong></p>
+        <ul>
+            <li>You create an account with your email address and a password of your choice</li>
+            <li>Your business data (contacts, transactions, inventory) is encrypted in transit (HTTPS/TLS) and stored in Firebase under your unique user ID</li>
+            <li>Data is bidirectionally synchronised across your devices to the same Firebase project</li>
+            <li>You can delete your cloud data at any time by signing out and using the "Reset & Delete Configuration" option</li>
+        </ul>
+        <p>Firebase is a Google service. Their privacy practices are governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a></p>
+        
+        <div class="highlight">
+            <strong>Important:</strong> If you never enable cloud backup, no data ever leaves your device. The app is fully functional offline.
+        </div>
+
+        <h2>💳 Subscriptions & Billing</h2>
+        <p>HesapPro offers a 7-day free trial followed by optional paid subscription plans (monthly/yearly). Payments are processed entirely through Google Play Billing. We do not collect, store, or have access to your payment card details.</p>
+        <p>Subscription status (active/inactive) is stored locally on your device. Google Play provides us with anonymised confirmation of whether a valid subscription exists; it does not share your personal payment information with us.</p>
+        <p>To cancel a subscription, visit Google Play Store → Subscriptions.</p>
+
+        <h2>🔗 Data Sharing & Disclosure</h2>
+        <p>We do not sell, rent, or trade your personal or business data to third parties. The only situations in which data may leave your device are:</p>
+        <ul>
+            <li><strong>Google Firebase:</strong> Business data you entered (contacts, transactions, inventory) - only if you enable cloud backup</li>
+            <li><strong>Google Play Billing:</strong> Subscription purchase confirmation (anonymised) - required for in-app subscriptions</li>
+            <li><strong>Legal/Regulatory:</strong> Any data required by applicable law - legal obligation only</li>
+        </ul>
+
+        <h2>🗑️ Data Retention & Deletion</h2>
+        <p>Your data remains on your device until you uninstall the app or manually delete records. Uninstalling HesapPro removes the local database and all SharedPreferences.</p>
+        <p>If you used cloud backup, your data in Firebase is associated with your account UID. To delete it, sign in to the cloud section within the app and use "Reset & Delete Configuration", or contact us at <a href="mailto:hesappro.app@gmail.com">hesappro.app@gmail.com</a></p>
+
+        <h2>👶 Children's Privacy</h2>
+        <p>HesapPro is designed for business use and is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+
+        <h2>🛡️ Security</h2>
+        <p>We take reasonable technical measures to protect your information:</p>
+        <ul>
+            <li>Local database uses Android's built-in app sandbox (data is not accessible to other apps)</li>
+            <li>Cloud data is transmitted over HTTPS/TLS</li>
+            <li>Firebase security rules restrict access to your data by your unique user ID only</li>
+        </ul>
+        <p>No method of transmission over the internet or electronic storage is 100% secure. We encourage you to use a strong, unique password for your cloud backup account.</p>
+
+        <h2>⚖️ Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+        <ul>
+            <li><strong>Access:</strong> Request a copy of data we hold about you</li>
+            <li><strong>Correction:</strong> Update inaccurate personal data</li>
+            <li><strong>Deletion:</strong> Request deletion of your data ("right to be forgotten")</li>
+            <li><strong>Portability:</strong> Export your data in a machine-readable format</li>
+            <li><strong>Objection:</strong> Object to certain processing activities</li>
+            <li><strong>Restriction:</strong> Ask us to limit how we process your data</li>
+        </ul>
+        <p>Since most data is stored locally on your device, you exercise these rights directly within the app. For cloud data, contact us.</p>
+
+        <h2>📝 Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Effective Date" above and, where appropriate, notify you through the app or via a Play Store update.</p>
+        <p>Continued use of HesapPro after any changes constitutes your acceptance of the updated policy.</p>
+
+        <h2>📧 Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please reach out:</p>
+        <p><strong>Email:</strong> <a href="mailto:hesappro.app@gmail.com">hesappro.app@gmail.com</a></p>
+        <p>We aim to respond within 5 business days.</p>
+
+        <div class="footer">
+            <p>© 2026 HesapPro · Privacy Policy v1.0</p>
+            <p style="margin-top: 10px;">This privacy policy is publicly accessible and complies with Google Play Store requirements.</p>
+        </div>
+    </div>
+</body>
+</html>
