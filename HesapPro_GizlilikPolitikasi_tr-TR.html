@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HesapPro – Gizlilik Politikası</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink:       #1a1f2e;
+    --muted:     #556070;
+    --accent:    #2d5be3;
+    --accent2:   #1e3fa8;
+    --surface:   #f4f6fc;
+    --card:      #ffffff;
+    --border:    #dde3f0;
+    --warn:      #e85d2f;
+    --warn-bg:   #fff4f0;
+    --green:     #1a9e6a;
+    --green-bg:  #edf9f4;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1a2744 0%, #2d5be3 100%);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(255,255,255,.08) 0%, transparent 70%);
+  }
+  .app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 40px;
+    padding: 8px 20px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .app-badge svg { width: 22px; height: 22px; opacity: .9; }
+  .app-badge span { font-size: 13px; font-weight: 600; letter-spacing: .04em; opacity: .9; }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 400;
+    letter-spacing: -.01em;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 14px;
+    opacity: .72;
+    letter-spacing: .03em;
+  }
+  .effective-chip {
+    display: inline-block;
+    margin-top: 18px;
+    background: rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    opacity: .88;
+  }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── SUMMARY CARDS ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: box-shadow .2s;
+  }
+  .summary-card:hover { box-shadow: 0 4px 20px rgba(45,91,227,.08); }
+  .card-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 18px;
+  }
+  .icon-green  { background: var(--green-bg);  color: var(--green); }
+  .icon-blue   { background: #eef2ff;           color: var(--accent); }
+  .icon-warn   { background: var(--warn-bg);    color: var(--warn); }
+  .icon-purple { background: #f3eeff;           color: #7c3aed; }
+  .card-text p:first-child { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+  .card-text p:last-child  { font-size: 13.5px; font-weight: 500; color: var(--ink); }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 40px; }
+  .section-number {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  p { margin-bottom: 12px; color: var(--ink); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── TABLES ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+  .data-table thead tr { background: #f0f3fa; }
+  .data-table th {
+    text-align: left;
+    padding: 11px 16px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .data-table td { padding: 11px 16px; border-top: 1px solid var(--border); vertical-align: top; }
+  .data-table tr:hover td { background: #f9faff; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .03em;
+  }
+  .badge-local  { background: var(--green-bg);  color: var(--green); }
+  .badge-cloud  { background: #eef2ff;           color: var(--accent); }
+  .badge-device { background: #f3eeff;           color: #7c3aed; }
+  .badge-ext    { background: #fff3cd;           color: #92600a; }
+
+  /* ── HIGHLIGHT BOXES ── */
+  .highlight {
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .highlight-green { background: var(--green-bg);  border-left: 3px solid var(--green); }
+  .highlight-blue  { background: #eef2ff;           border-left: 3px solid var(--accent); }
+  .highlight-warn  { background: var(--warn-bg);    border-left: 3px solid var(--warn); }
+  .highlight em { font-style: normal; font-weight: 700; }
+  .hl-icon { font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+
+  /* ── PERMISSION LIST ── */
+  .permission-list { list-style: none; margin: 14px 0; }
+  .permission-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 13px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+  }
+  .perm-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .perm-name { font-weight: 700; display: block; margin-bottom: 2px; color: var(--ink); }
+  .perm-why  { color: var(--muted); font-size: 12.5px; }
+
+  /* ── RIGHTS GRID ── */
+  .rights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 14px 0; }
+  .right-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+  .right-item .r-title { font-weight: 700; margin-bottom: 3px; color: var(--accent); }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: linear-gradient(135deg, #1a2744 0%, #2d5be3 100%);
+    border-radius: 16px;
+    padding: 28px 28px;
+    color: #fff;
+    margin-top: 40px;
+  }
+  .contact-box h3 { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; }
+  .contact-box p  { opacity: .82; font-size: 14px; margin-bottom: 6px; }
+  .contact-box a  { color: #90b4ff; text-decoration: none; font-weight: 600; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 36px 16px 32px; }
+    main { padding: 28px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="app-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="7" height="18" rx="1"/><rect x="15" y="3" width="7" height="18" rx="1"/>
+      <circle cx="12" cy="12" r="4"/><path d="M12 9v6M10 12h4"/>
+    </svg>
+    <span>HesapPro</span>
+  </div>
+  <h1>Gizlilik Politikası</h1>
+  <p class="subtitle">Küçük İşletme Muhasebe ve Yönetim Uygulaması</p>
+  <div class="effective-chip">Yürürlük Tarihi: 5 Haziran 2026 &nbsp;·&nbsp; Sürüm 1.0</div>
+</header>
+
+<main>
+
+  <!-- Özet Kartlar -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="card-icon icon-green">🔒</div>
+      <div class="card-text">
+        <p>Veri Depolama</p>
+        <p>Varsayılan olarak cihazınızda yerel depolama</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon icon-blue">☁️</div>
+      <div class="card-text">
+        <p>Bulut Yedekleme</p>
+        <p>İsteğe bağlı — kendi Firebase hesabınızı kullanır</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon icon-warn">🚫</div>
+      <div class="card-text">
+        <p>Üçüncü Taraf Reklam</p>
+        <p>Reklam yok. Veriniz asla satılmaz.</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon icon-purple">📋</div>
+      <div class="card-text">
+        <p>Veri Kategorileri</p>
+        <p>Cari hesaplar, işlemler, stok</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Giriş -->
+  <section>
+    <span class="section-number">01</span>
+    <h2>Giriş</h2>
+    <p><strong>HesapPro</strong> ("Uygulama", "biz" veya "bizim") küçük işletmeler için geliştirilmiş bir Android muhasebe ve yönetim uygulamasıdır. Satış, alış, kasa, cari hesap ve stok takibini kolaylaştırmak amacıyla tasarlanmıştır.</p>
+    <p>Bu Gizlilik Politikası; hangi bilgileri topladığımızı, bu bilgileri nasıl kullandığımızı ve verilerinizle ilgili haklarınızı açıklamaktadır. HesapPro'yu kurarak veya kullanarak bu politikada açıklanan uygulamaları kabul etmiş sayılırsınız.</p>
+    <div class="highlight highlight-green">
+      <span class="hl-icon">✅</span>
+      <div><em>Temel ilkemiz:</em> Tüm iş verileriniz cihazınızda yerel olarak saklanır. İş verilerinizi hiçbir üçüncü tarafla toplamıyor, satmıyor ve paylaşmıyoruz. Bulut yedekleme tamamen isteğe bağlıdır ve kontrolü sizdedir.</div>
+    </div>
+  </section>
+
+  <!-- 2. Topladığımız Bilgiler -->
+  <section>
+    <span class="section-number">02</span>
+    <h2>Topladığımız Bilgiler</h2>
+    <p>HesapPro yalnızca uygulamaya aktif olarak girdiğiniz verileri toplar ve işler. Otomatik analitik, telemetri veya kullanım verisi toplamıyoruz.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Veri Kategorisi</th>
+          <th>İçerdiği Bilgiler</th>
+          <th>Saklama Yeri</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cari Hesaplar</strong></td>
+          <td>Ad-soyad, telefon, e-posta, adres, vergi dairesi, vergi numarası, hesap bakiyesi</td>
+          <td><span class="badge badge-local">Yerel (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>İşlemler</strong></td>
+          <td>Satış, alış, tahsilat, ödeme — tarih, tutar, belge numarası, notlar</td>
+          <td><span class="badge badge-local">Yerel (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Stok</strong></td>
+          <td>Ürün kodu, adı, kategorisi, birimi, alış/satış fiyatı, KDV oranı, stok miktarı</td>
+          <td><span class="badge badge-local">Yerel (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Çek Kayıtları</strong></td>
+          <td>Çek seri numarası, banka adı, vade tarihi, vergi numarası, tutar</td>
+          <td><span class="badge badge-local">Yerel (Room DB)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Firma Profili</strong></td>
+          <td>İşletme adı, telefon, e-posta, adres, vergi bilgileri (PDF rapor başlığında kullanılır)</td>
+          <td><span class="badge badge-device">SharedPreferences</span></td>
+        </tr>
+        <tr>
+          <td><strong>Deneme / Abonelik Durumu</strong></td>
+          <td>Deneme başlangıç zaman damgası, abonelik durum bayrağı</td>
+          <td><span class="badge badge-device">SharedPreferences</span></td>
+        </tr>
+        <tr>
+          <td><strong>Bulut Yedekleme (İsteğe Bağlı)</strong></td>
+          <td>Yukarıdakilerin tamamı; e-posta/şifre ile oturum açtığınızda Firebase Realtime Database'e yüklenir</td>
+          <td><span class="badge badge-cloud">Firebase (isteğe bağlı)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight highlight-blue">
+      <span class="hl-icon">ℹ️</span>
+      <div><em>Toplamadıklarımız:</em> Cihaz tanımlayıcıları (IMEI, reklam kimliği), konum verisi, tarama geçmişi, telefon rehberinizdeki kişiler (rehber izni yalnızca siz "Rehberden Al" düğmesine bastığınızda kullanılır) veya biyometrik veri.</div>
+    </div>
+  </section>
+
+  <!-- 3. Bilgilerinizi Nasıl Kullanırız -->
+  <section>
+    <span class="section-number">03</span>
+    <h2>Bilgilerinizi Nasıl Kullanırız</h2>
+    <p>Tüm veri işleme cihazınız üzerinde gerçekleşir. Girdiğiniz verileri yalnızca aşağıdaki amaçlarla kullanırız:</p>
+    <ul style="padding-left:20px; margin:10px 0;">
+      <li style="margin-bottom:8px;">İşletme kontrol panelini görüntülemek (net özkaynak değeri, kasa toplamları, alacak/borç)</li>
+      <li style="margin-bottom:8px;">PDF raporlar, fişler ve cari hesap ekstreleri oluşturmak</li>
+      <li style="margin-bottom:8px;">Stok seviyelerini yönetmek ve stok uyarıları göndermek</li>
+      <li style="margin-bottom:8px;">Barkod okuyucu (kamera) ile ürün aramak veya eklemek</li>
+      <li style="margin-bottom:8px;">Bulut yedeklemeyi etkinleştirdiyseniz verilerinizi Firebase üzerinden çoklu cihaza senkronize etmek</li>
+      <li style="margin-bottom:8px;">Google Play Faturalandırma aracılığıyla deneme süresini ve abonelik durumunu yönetmek</li>
+    </ul>
+    <p>Verilerinizi reklam, profilleme veya aktif olarak kullandığınız uygulama özelliklerini işletmek dışında herhangi bir amaç için kullanmıyoruz.</p>
+  </section>
+
+  <!-- 4. Uygulama İzinleri -->
+  <section>
+    <span class="section-number">04</span>
+    <h2>Uygulama İzinleri</h2>
+    <p>HesapPro aşağıdaki Android izinlerini talep eder:</p>
+    <ul class="permission-list">
+      <li>
+        <span class="perm-icon">📷</span>
+        <div>
+          <span class="perm-name">CAMERA (Kamera)</span>
+          <span class="perm-why">Yalnızca ürün barkodlarını taramak için kullanılır. Uygulama tarafından hiçbir fotoğraf çekilmez veya saklanmaz.</span>
+        </div>
+      </li>
+      <li>
+        <span class="perm-icon">👥</span>
+        <div>
+          <span class="perm-name">READ_CONTACTS (Rehber Okuma)</span>
+          <span class="perm-why">Yalnızca "Rehberden Aktar" düğmesine bastığınızda yeni bir cari kaydının ad ve telefon alanını otomatik doldurmak için kullanılır. Uygulama arka planda hiçbir zaman rehberinizi okumaz.</span>
+        </div>
+      </li>
+      <li>
+        <span class="perm-icon">🌐</span>
+        <div>
+          <span class="perm-name">INTERNET (İnternet)</span>
+          <span class="perm-why">İsteğe bağlı Firebase bulut yedekleme ve Google Play Faturalandırma (abonelik yönetimi) için gereklidir.</span>
+        </div>
+      </li>
+      <li>
+        <span class="perm-icon">🖼️</span>
+        <div>
+          <span class="perm-name">READ_MEDIA_IMAGES / READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE</span>
+          <span class="perm-why">PDF raporlarını paylaşabilmeniz veya arşivleyebilmeniz için cihazınızın depolama alanına kaydetmek amacıyla kullanılır. Kişisel fotoğraflarınıza erişilmez.</span>
+        </div>
+      </li>
+    </ul>
+    <div class="highlight highlight-warn">
+      <span class="hl-icon">⚠️</span>
+      <div>Tüm izinler <em>çalışma zamanında isteğe bağlıdır</em>. Bir izni reddetmek yalnızca ilgili özelliği devre dışı bırakır; temel muhasebe işlevselliğini etkilemez.</div>
+    </div>
+  </section>
+
+  <!-- 5. Bulut Yedekleme & Firebase -->
+  <section>
+    <span class="section-number">05</span>
+    <h2>Bulut Yedekleme &amp; Firebase</h2>
+    <p>HesapPro, Google Firebase Realtime Database altyapısıyla çalışan <strong>isteğe bağlı</strong> bir bulut yedekleme özelliği içerir. Bu özellik varsayılan olarak devre dışıdır.</p>
+    <p>Bulut yedeklemeyi etkinleştirmeyi tercih ederseniz:</p>
+    <ul style="padding-left:20px; margin:10px 0;">
+      <li style="margin-bottom:8px;">E-posta adresiniz ve seçtiğiniz bir şifre ile hesap oluşturursunuz.</li>
+      <li style="margin-bottom:8px;">İş verileriniz (cariler, işlemler, stok) aktarım sırasında şifrelenir (HTTPS/TLS) ve Firebase'de benzersiz kullanıcı kimliğiniz altında saklanır.</li>
+      <li style="margin-bottom:8px;">Veriler, aynı Firebase projesindeki cihazlarınız arasında çift yönlü senkronize edilir.</li>
+      <li style="margin-bottom:8px;">Bulut verilerinizi istediğiniz zaman; oturumu kapatarak ve "Sıfırla &amp; Yapılandırmayı Sil" seçeneğini kullanarak silebilirsiniz.</li>
+    </ul>
+    <p>Firebase bir Google hizmetidir. Firebase'in gizlilik uygulamaları Google Gizlilik Politikası kapsamındadır: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--accent)">policies.google.com/privacy</a></p>
+    <div class="highlight highlight-green">
+      <span class="hl-icon">✅</span>
+      <div>Bulut yedeklemeyi hiç etkinleştirmezseniz <em>herhangi bir veri cihazınızdan çıkmaz</em>. Uygulama tamamen çevrimdışı çalışır.</div>
+    </div>
+  </section>
+
+  <!-- 6. Abonelikler & Faturalandırma -->
+  <section>
+    <span class="section-number">06</span>
+    <h2>Abonelikler &amp; Faturalandırma</h2>
+    <p>HesapPro <strong>7 günlük ücretsiz deneme</strong> süresiyle birlikte isteğe bağlı ücretli abonelik planları (aylık/yıllık) sunmaktadır. Ödemeler tamamen <strong>Google Play Faturalandırma</strong> altyapısı üzerinden gerçekleşir. Ödeme kartı bilgilerinizi toplamıyor, saklamıyor veya erişemiyor olduğumuzu belirtmek isteriz.</p>
+    <p>Abonelik durumu (aktif / pasif) cihazınızda yerel olarak saklanır. Google Play bize geçerli bir aboneliğin var olup olmadığına dair anonimleştirilmiş onay iletir; kişisel ödeme bilgilerinizi bizimle paylaşmaz.</p>
+    <p>Aboneliği iptal etmek için Google Play Mağaza → Abonelikler bölümünü ziyaret edin.</p>
+  </section>
+
+  <!-- 7. Veri Paylaşımı -->
+  <section>
+    <span class="section-number">07</span>
+    <h2>Veri Paylaşımı &amp; İfşası</h2>
+    <p>Kişisel veya iş verilerinizi üçüncü taraflara satmıyor, kiralamıyor veya devretmiyoruz. Verilerin cihazınızdan çıkabileceği tek durumlar şunlardır:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th>Alıcı</th><th>Paylaşılan Veri</th><th>Dayanak</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Google Firebase</strong></td>
+          <td>Girdiğiniz iş verileri (cariler, işlemler, stok)</td>
+          <td>Yalnızca bulut yedeklemeyi etkinleştirirseniz</td>
+        </tr>
+        <tr>
+          <td><strong>Google Play Faturalandırma</strong></td>
+          <td>Abonelik satın alma onayı (anonimleştirilmiş)</td>
+          <td>Uygulama içi abonelikler için zorunlu</td>
+        </tr>
+        <tr>
+          <td><strong>Yasal / Düzenleyici</strong></td>
+          <td>Yürürlükteki mevzuat kapsamında zorunlu olan her türlü veri</td>
+          <td>Yalnızca yasal yükümlülük</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 8. Veri Saklama & Silme -->
+  <section>
+    <span class="section-number">08</span>
+    <h2>Veri Saklama &amp; Silme</h2>
+    <p>Verileriniz, uygulamayı kaldırana veya kayıtları manuel olarak silene kadar cihazınızda kalır. HesapPro'yu kaldırmak yerel veritabanını ve tüm SharedPreferences verilerini siler.</p>
+    <p>Bulut yedekleme kullandıysanız Firebase'deki verileriniz hesap UID'nize bağlıdır. Silmek için uygulama içindeki bulut bölümünde oturum açın ve "Sıfırla &amp; Yapılandırmayı Sil" seçeneğini kullanın ya da tam silme talebi için aşağıdaki adrese yazın.</p>
+  </section>
+
+  <!-- 9. Çocukların Gizliliği -->
+  <section>
+    <span class="section-number">09</span>
+    <h2>Çocukların Gizliliği</h2>
+    <p>HesapPro iş amaçlı kullanım için tasarlanmıştır ve 13 yaşın altındaki çocuklara yönelik değildir. Çocuklardan bilerek kişisel bilgi toplamıyoruz. Bir çocuğun bize kişisel bilgi sağladığını düşünüyorsanız lütfen derhal bizimle iletişime geçin.</p>
+  </section>
+
+  <!-- 10. Güvenlik -->
+  <section>
+    <span class="section-number">10</span>
+    <h2>Güvenlik</h2>
+    <p>Bilgilerinizi korumak için makul teknik önlemler alıyoruz:</p>
+    <ul style="padding-left:20px; margin:10px 0;">
+      <li style="margin-bottom:6px;">Yerel veritabanı, Android'in yerleşik uygulama korumalı alanını (sandbox) kullanır; veriler diğer uygulamalar tarafından erişilemez.</li>
+      <li style="margin-bottom:6px;">Bulut verileri HTTPS/TLS üzerinden iletilir.</li>
+      <li style="margin-bottom:6px;">Firebase güvenlik kuralları, verilerinize yalnızca kendi benzersiz kullanıcı kimliğinizle erişilebilmesini sağlar.</li>
+    </ul>
+    <p>İnternet üzerinden iletim veya elektronik depolama yöntemlerinin %100 güvenli olduğunu garanti etmek mümkün değildir. Bulut yedekleme hesabınız için güçlü ve benzersiz bir şifre kullanmanızı öneririz.</p>
+  </section>
+
+  <!-- 11. Haklarınız -->
+  <section>
+    <span class="section-number">11</span>
+    <h2>Haklarınız</h2>
+    <p>Bulunduğunuz yargı bölgesine bağlı olarak kişisel verilerinizle ilgili aşağıdaki haklara sahip olabilirsiniz:</p>
+    <div class="rights-grid">
+      <div class="right-item"><div class="r-title">Erişim</div>Hakkınızda tuttuğumuz verilerin bir kopyasını talep edin.</div>
+      <div class="right-item"><div class="r-title">Düzeltme</div>Yanlış kişisel verileri güncelleyin.</div>
+      <div class="right-item"><div class="r-title">Silme</div>Verilerinizin silinmesini talep edin ("unutulma hakkı").</div>
+      <div class="right-item"><div class="r-title">Taşınabilirlik</div>Verilerinizi makine tarafından okunabilir biçimde dışa aktarın.</div>
+      <div class="right-item"><div class="r-title">İtiraz</div>Belirli işleme faaliyetlerine itiraz edin.</div>
+      <div class="right-item"><div class="r-title">Kısıtlama</div>Verilerinizi nasıl işlediğimizi sınırlamamızı isteyin.</div>
+    </div>
+    <p>Verilerin büyük bölümü cihazınızda yerel olarak saklandığından bu haklarınızı doğrudan uygulama içinden kullanabilirsiniz. Bulut verileri için aşağıdaki adrese başvurabilirsiniz.</p>
+    <div class="highlight highlight-blue">
+      <span class="hl-icon">🇹🇷</span>
+      <div>Türkiye'de yerleşik kullanıcılar, <em>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)</em> kapsamındaki haklarını kullanmak için yukarıdaki iletişim bilgileri aracılığıyla bizimle iletişime geçebilirler.</div>
+    </div>
+  </section>
+
+  <!-- 12. Değişiklikler -->
+  <section>
+    <span class="section-number">12</span>
+    <h2>Bu Politikadaki Değişiklikler</h2>
+    <p>Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler yaptığımızda sayfanın üst kısmındaki "Yürürlük Tarihi"ni güncelleyecek ve uygun durumlarda sizi uygulama içinden veya Play Store güncelleme notu aracılığıyla bilgilendireceğiz.</p>
+    <p>Değişikliklerin ardından HesapPro'yu kullanmaya devam etmeniz, güncellenmiş politikayı kabul ettiğiniz anlamına gelir.</p>
+  </section>
+
+  <!-- İletişim -->
+  <div class="contact-box">
+    <h3>İletişim</h3>
+    <p>Bu Gizlilik Politikası veya verilerinizle ilgili herhangi bir soru, endişe veya talebiniz varsa bizimle iletişime geçin:</p>
+    <p>📧 <a href="mailto:hesappro.app@gmail.com">hesappro.app@gmail.com</a></p>
+    <p style="margin-top:10px; font-size:12px; opacity:.6;">5 iş günü içinde yanıt vermeyi hedefliyoruz.</p>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 HesapPro &nbsp;·&nbsp; Gizlilik Politikası v1.0 &nbsp;·&nbsp; Son güncelleme: 5 Haziran 2026
+</footer>
+
+</body>
+</html>
